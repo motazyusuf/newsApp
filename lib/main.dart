@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
       theme: ApplicationThemeManager.theme,
       onGenerateRoute: AppRouter.onGenerateRoute,
       title: 'News app',
-      home: Scaffold(),
     );
   }
 }
