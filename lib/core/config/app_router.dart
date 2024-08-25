@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/core/config/pages_routes_names.dart';
 
-import '../../features/home/home_view.dart';
+import '../../features/pages/home/home_view.dart';
 import '../../features/splash/splash_view.dart';
 
 class AppRouter{
