@@ -18,8 +18,58 @@ class CustomedDrawer extends StatelessWidget {
             height: height * 0.2,
             width: double.infinity,
             color: ColorPalette.primaryColor,
-            child: Center(child: Text("News App!", style: theme.textTheme.headlineLarge,)),
-          )
+            child: Center(
+                child: Text(
+              "News App!",
+              style: theme.textTheme.headlineLarge,
+            )),
+          ),
+          const SizedBox(height: 30,),
+          InkWell(
+              onTap: () {},
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.view_list_rounded,
+                      color: Colors.black,
+                      size: 30,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "Categories",
+                      style: theme.textTheme.headlineLarge
+                          ?.copyWith(color: Colors.black),
+                    )
+                  ],
+                ),
+              )),
+          const SizedBox(height: 10,),
+          InkWell(
+              onTap: () {},
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Row(
+                  children: [
+                    const Icon(
+                      Icons.settings,
+                      color: Colors.black,
+                      size: 30,
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "Settings",
+                      style: theme.textTheme.headlineLarge
+                          ?.copyWith(color: Colors.black),
+                    )
+                  ],
+                ),
+              )),
         ],
       ),
     );
