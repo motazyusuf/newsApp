@@ -14,8 +14,14 @@ class CategoryItem extends StatelessWidget {
     var theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius:BorderRadius.only(
+          bottomLeft:  index % 2 == 0 ? Radius.circular(15) : Radius.circular(0),
+          bottomRight: index % 2 == 0 ? Radius.circular(0) : Radius.circular(15),
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15)
+        ),
           color: category.categoryBackgroundColor,
+
         // image: DecorationImage(image: AssetImage(category.categoryImagePath)),
 
       ),
