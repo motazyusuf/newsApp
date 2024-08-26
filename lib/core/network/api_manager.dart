@@ -8,7 +8,7 @@ import 'package:news_app/models/sources_model.dart';
 
 class ApiManager{
 
- static fetchSourcesList(String categoryID) async {
+ static Future<List<SingleSource>> fetchSourcesList(String categoryID) async {
 
     // constructing the URL
     var url = Uri.https(
@@ -44,7 +44,7 @@ class ApiManager{
       }
   }
 
-  static fetchArticlesList(String categoryID) async{
+  static Future<List<SingleArticle>> fetchArticlesList(String categoryID) async{
 
     // construct the url
     var url = Uri.https(

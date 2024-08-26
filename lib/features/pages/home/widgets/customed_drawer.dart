@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/theme/color_palette.dart';
+import 'package:news_app/features/pages/home/home_view.dart';
 
 class CustomedDrawer extends StatelessWidget {
-  const CustomedDrawer({super.key});
+   CustomedDrawer({super.key, required this.onDrawerCategoryTap});
+
+   void Function() onDrawerCategoryTap;
+
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.sizeOf(context).height;
     var width = MediaQuery.sizeOf(context).width;
     var theme = Theme.of(context);
+
     return Container(
       color: Colors.white,
       width: width * 0.7,
@@ -26,7 +31,10 @@ class CustomedDrawer extends StatelessWidget {
           ),
           const SizedBox(height: 30,),
           InkWell(
-              onTap: () {},
+              onTap: () {
+                  onDrawerCategoryTap();
+                  Navigator.pop(context);
+              },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(

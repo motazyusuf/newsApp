@@ -27,6 +27,12 @@ class ApplicationThemeManager {
           fontSize: 22,
           fontWeight: FontWeight.w400,
           height: 29.24),
+      titleMedium: TextStyle(
+          fontFamily: "Exo",
+          color: Colors.white,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          ),
     ),
   );
 }
