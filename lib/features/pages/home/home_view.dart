@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/features/pages/home/widgets/category_item.dart';
 import 'package:news_app/features/pages/home/widgets/customed_drawer.dart';
 
-import '../../../models/category.dart';
+import '../../../models/category_model.dart';
 
 class HomeView extends StatefulWidget {
   HomeView({super.key});
