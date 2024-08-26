@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/config/app_router.dart';
 import 'package:news_app/core/config/pages_routes_names.dart';
+import 'package:news_app/core/network/api_manager.dart';
 import 'package:news_app/core/theme/application_theme_manager.dart';
 
 void main() {
   runApp(const MyApp());
+
+  ApiManager.fetchArticlesList("sports");
+  ApiManager.fetchSourcesList("sports");
 }
 
 class MyApp extends StatelessWidget {

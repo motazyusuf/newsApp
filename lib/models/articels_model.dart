@@ -24,20 +24,20 @@ class SingleArticle {
   final SingleSource source;
   final String author;
   final String title;
-  final String description;
+  final String? description;
   final String url;
   final String publishedAt;
-  final String urlToImage;
-  final String content;
+  final String? urlToImage;
+  final String? content;
 
   SingleArticle(
       {required this.source,
       required this.author,
       required this.title,
-      required this.description,
+       this.description,
       required this.url,
-      required this.urlToImage,
-      required this.content,
+       this.urlToImage,
+       this.content,
       required this.publishedAt});
 
   factory SingleArticle.fromJson(Map<String, dynamic> json){
