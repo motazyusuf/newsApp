@@ -27,8 +27,8 @@ class SingleArticle {
   final String description;
   final String url;
   final String publishedAt;
-  // final String urlToImage;
-  // final String content;
+  final String urlToImage;
+  final String content;
 
   SingleArticle(
       {required this.source,
@@ -36,6 +36,8 @@ class SingleArticle {
       required this.title,
       required this.description,
       required this.url,
+      required this.urlToImage,
+      required this.content,
       required this.publishedAt});
 
   factory SingleArticle.fromJson(Map<String, dynamic> json){
@@ -45,6 +47,8 @@ class SingleArticle {
         title: json["title"],
         description: json["description"],
         url: json["url"],
+        urlToImage:json["urlToImage"] ,
+        content: json["content"],
         publishedAt: json["publishedAt"]);
   }
 
