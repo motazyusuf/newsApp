@@ -28,15 +28,17 @@ class _SelectedCategoryViewState extends State<SelectedCategoryView> {
         if (snapshot.hasError) {
           return const Text("Error Fetching the Data");
         }
-        // if (snapshot.connectionState == ConnectionState.waiting) {
-        //   return Center(
-        //     child: CircularProgressIndicator(
-        //       color: ColorPalette.primaryColor,
-        //     ),
-        //   );
-        // }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(
+            child: CircularProgressIndicator(
+              color: ColorPalette.primaryColor,
+            ),
+          );
+        }
+
 
         List<SingleSource> singleSourceList = snapshot.data ?? [];
+        print("first index id ---> ${singleSourceList[0].id}");
 
         return SelectedCategoryDetails(
           singleSourceList: singleSourceList,

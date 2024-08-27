@@ -37,8 +37,9 @@ int selectedIndex = 0;
                 },
                 isScrollable: true,
                 indicatorPadding: EdgeInsets.zero,
-                labelPadding: EdgeInsets.symmetric(horizontal: 5),
-                padding: EdgeInsets.symmetric(vertical: 8),
+                labelPadding: const EdgeInsets.symmetric(horizontal: 5),
+                padding: const EdgeInsets.only(top: 8),
+
                 indicatorColor: Colors.transparent,
                 dividerColor: Colors.transparent,
                 tabs: widget.singleSourceList
@@ -50,6 +51,8 @@ int selectedIndex = 0;
                               : false,
                         ))
                     .toList())),
+
+
         // articles
         Expanded(
           child: FutureBuilder(
