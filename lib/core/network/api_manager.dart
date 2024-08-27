@@ -44,7 +44,7 @@ class ApiManager{
       }
   }
 
-  static Future<List<SingleArticle>> fetchArticlesList(String categoryID) async{
+  static Future<List<SingleArticle>> fetchArticlesList(String source) async{
 
     // construct the url
     var url = Uri.https(
@@ -52,9 +52,11 @@ class ApiManager{
         "v2/top-headlines",
         {
           "apiKey": Constants.apiKey,
-          "category": categoryID
+          "sources": source
         }
     );
+
+    print("url --->> $url");
 
     // get full response
     var response = await http.get(url);
@@ -67,12 +69,14 @@ class ApiManager{
 
       // decode from String to Json
       var jsonArticlesList = jsonDecode(responseJsonInString);
-      print("Articles --> $jsonArticlesList");
+
 
       // from Json to ArticlesModel
       ArticlesModel articles = ArticlesModel.fromJson(jsonArticlesList);
 
       // get the list of articles
+
+      print("Articles --> ${articles.articles[0]}");
       return articles.articles;
 
     }
