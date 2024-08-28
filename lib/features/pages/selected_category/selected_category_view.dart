@@ -21,10 +21,19 @@ class SelectedCategoryView extends StatefulWidget {
 class _SelectedCategoryViewState extends State<SelectedCategoryView> {
   @override
   Widget build(BuildContext context) {
+    var theme= Theme.of(context);
     return FutureBuilder(
       future:
           ApiManager.fetchSourcesList(widget.selectedCategory.categoryID),
       builder: (context, snapshot) {
+        // if (!snapshot.hasData) {
+        //   return Center(
+        //     child: Text(
+        //                 "No Available Sources",
+        //                 style: theme.textTheme.displayLarge,
+        //               ),
+        //   );
+        // }
         if (snapshot.hasError) {
           return const Text("Error Fetching the Data");
         }
@@ -38,7 +47,6 @@ class _SelectedCategoryViewState extends State<SelectedCategoryView> {
 
 
         List<SingleSource> singleSourceList = snapshot.data ?? [];
-        print("first index id ---> ${singleSourceList[0].id}");
 
         return SelectedCategoryDetails(
           singleSourceList: singleSourceList,

@@ -14,17 +14,17 @@ class SelectedCategoryDetails extends StatefulWidget {
   List<SingleSource> singleSourceList;
   String categoryID;
 
-
   @override
   State<SelectedCategoryDetails> createState() =>
       _SelectedCategoryDetailsState();
 }
 
 class _SelectedCategoryDetailsState extends State<SelectedCategoryDetails> {
+  int selectedIndex = 0;
 
-int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     return Column(
       children: [
         DefaultTabController(
@@ -32,14 +32,13 @@ int selectedIndex = 0;
             child: TabBar(
                 onTap: (index) {
                   setState(() {
-                   selectedIndex = index;
+                    selectedIndex = index;
                   });
                 },
                 isScrollable: true,
                 indicatorPadding: EdgeInsets.zero,
                 labelPadding: const EdgeInsets.symmetric(horizontal: 5),
                 padding: const EdgeInsets.only(top: 8),
-
                 indicatorColor: Colors.transparent,
                 dividerColor: Colors.transparent,
                 tabs: widget.singleSourceList
@@ -52,32 +51,40 @@ int selectedIndex = 0;
                         ))
                     .toList())),
 
-
         // articles
+
         Expanded(
-          child: FutureBuilder(
-            future: ApiManager.fetchArticlesList(widget.singleSourceList == []
-                ? "sports"
-                : widget.singleSourceList[selectedIndex].id),
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                return Text("${snapshot.error}");
-              }
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(
-                  child: CircularProgressIndicator(
-                    color: ColorPalette.primaryColor,
-                  ),
-                );
-              }
+          child: widget.singleSourceList.isEmpty
+              ? const Center(
+                  child: Text(
+                  "No Available Sources",
+                  // style: theme.textTheme.titleLarge!
+                  //     .copyWith(color: Colors.black),
+                ))
+              : FutureBuilder(
+                  future: ApiManager.fetchArticlesList(
+                      widget.singleSourceList == []
+                          ? "sports"
+                          : widget.singleSourceList[selectedIndex].id),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasError) {
+                      return Text("${snapshot.error}");
+                    }
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(
+                        child: CircularProgressIndicator(
+                          color: ColorPalette.primaryColor,
+                        ),
+                      );
+                    }
 
-              List<SingleArticle> singleArticleList = snapshot.data ?? [];
+                    List<SingleArticle> singleArticleList = snapshot.data ?? [];
 
-              // articles Item
-              return SelectedCategoryArticlesDetails(
-                  singleArticleList: singleArticleList);
-            },
-          ),
+                    // articles Item
+                    return SelectedCategoryArticlesDetails(
+                        singleArticleList: singleArticleList);
+                  },
+                ),
         )
       ],
     );
