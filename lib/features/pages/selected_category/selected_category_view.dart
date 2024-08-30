@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/core/network/api_manager.dart';
 import 'package:news_app/core/theme/color_palette.dart';
 import 'package:news_app/features/pages/selected_category/widgets/selected_category_details.dart';
-import 'package:news_app/features/pages/selected_category/widgets/selected_category_articles_details.dart';
+import 'package:news_app/features/pages/selected_category/widgets/selected_category_articles_component.dart';
 import 'package:news_app/features/pages/selected_category/widgets/tabBar_item.dart';
 import 'package:news_app/models/articels_model.dart';
 import 'package:news_app/models/category_model.dart';

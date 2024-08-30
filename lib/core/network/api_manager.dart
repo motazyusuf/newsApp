@@ -49,7 +49,7 @@ class ApiManager{
     // construct the url
     var url = Uri.https(
         Constants.domain,
-        "v2/top-headlines",
+        "v2/everything",
         {
           "apiKey": Constants.apiKey,
           "sources": source
