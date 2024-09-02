@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/core/config/pages_routes_names.dart';
 import 'package:news_app/models/articels_model.dart';
-import 'package:news_app/models/sources_model.dart';
+import 'package:webview_flutter_android/webview_flutter_android.dart';
+import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 
 class ArticleDetailsView extends StatelessWidget {
   const ArticleDetailsView({super.key});
@@ -56,16 +58,18 @@ class ArticleDetailsView extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 50,),
+            const SizedBox(height: 50,),
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: Text(article.content!, style: theme.textTheme.displayMedium!
                   .copyWith(fontSize: 16),),
             ),
-            Spacer(),
+            const Spacer(),
             Container(margin: EdgeInsets.only(left: width/1.7,),
                 child: FilledButton(style: FilledButton.styleFrom(backgroundColor: Colors.white),
-                    onPressed: () {},
+                    onPressed: () {
+                  Navigator.pushNamed(context, PagesRoutesNames.webView, arguments: article);
+                    },
                     child: Text("View full article",
                         style: theme.textTheme.displayMedium!
                             .copyWith(fontWeight: FontWeight.bold,fontSize: 12, color: Color(0xff42505C)))))
