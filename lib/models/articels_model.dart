@@ -22,7 +22,7 @@ final List<SingleArticle> articles;
 class SingleArticle {
 
   final SingleSource source;
-  final String author;
+  final String? author;
   final String title;
   final String? description;
   final String url;
@@ -32,7 +32,7 @@ class SingleArticle {
 
   SingleArticle(
       {required this.source,
-      required this.author,
+       this.author,
       required this.title,
        this.description,
       required this.url,

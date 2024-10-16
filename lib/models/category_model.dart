@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Category {
+class CategoryObject {
   final String categoryID;
   final String categoryName;
   final Color categoryBackgroundColor;
   final String categoryImagePath;
 
-  Category(
+  CategoryObject(
       {required this.categoryID,
       required this.categoryName,
       required this.categoryBackgroundColor,
