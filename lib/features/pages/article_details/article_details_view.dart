@@ -61,8 +61,8 @@ class ArticleDetailsView extends StatelessWidget {
             const SizedBox(height: 50,),
             Padding(
               padding: const EdgeInsets.all(15.0),
-              child: Text(article.content!, style: theme.textTheme.displayMedium!
-                  .copyWith(fontSize: 16),),
+              child: Text(article.content!.contains("[") ? article.content!.substring(0,200) : article.content!, style: theme.textTheme.displayMedium!
+                  .copyWith(fontSize: 17),),
             ),
             const Spacer(),
             Container(margin: EdgeInsets.only(left: width/1.7,),
